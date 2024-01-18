@@ -12,8 +12,6 @@ resource "aws_s3_bucket" "hello_world_bucket" {
     error_document = "error.html"
   }
 
-  force_destroy = true
-
   versioning {
     enabled = true
   }
