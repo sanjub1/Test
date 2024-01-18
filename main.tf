@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "hello_world_bucket" {
-  bucket = "your-unique-bucket-name"  # Replace with a unique bucket name
+  bucket = "sreyo,helloworld,bucket007"  # Replace with a unique bucket name
   acl    = "public-read"
 
   website {
