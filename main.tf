@@ -1,24 +1,13 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
-    }
-    
-  }
-
-  required_version = ">= 1.2.0"
-}
-
 provider "aws" {
-  region  = "us-west-2"
+  region = "us-east-1"  # Adjust the region as needed
 }
 
-resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
-  instance_type = "t2.micro"
+resource "aws_s3_bucket" "hello_world_bucket" {
+  bucket = "your-unique-bucket-name"  # Replace with a unique bucket name
+  acl    = "public-read"
 
-  tags = {
-    Name = "ExampleAppServerInstance"
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
   }
 }
