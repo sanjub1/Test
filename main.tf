@@ -16,3 +16,10 @@ resource "aws_s3_bucket" "hello_world_bucket" {
     enabled = true
   }
 }
+resource "null_resource" "copy_html" {
+  provisioner "local-exec" {
+    command = "aws s3 cp index.html s3://${aws_s3_bucket.hello_world_bucket.bucket}/"
+  }
+
+  depends_on = [aws_s3_bucket.hello_world_bucket]
+}
